@@ -5,6 +5,6 @@
       
 ## Spring Boot, MongoDB, GraphQL, JHipster
 
-      Spring Boot as my Java Framework
+      Spring Boot as my Java API Framework
       MongoDB as my database
       GraphQL instead of the traditional REST
