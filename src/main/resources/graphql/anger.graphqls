@@ -1,0 +1,18 @@
+
+
+type Anger {
+	cause: String!	
+	definer: email!
+	id: ID!
+	description: String!
+}
+
+extend type Query {
+	findAllAngers: [Anger]!
+	findOneAnger: [Anger]!
+}
+
+extend type Mutation {
+	createAnger(cause: String!, definer: String!, description: String!): Anger!
+	
+}

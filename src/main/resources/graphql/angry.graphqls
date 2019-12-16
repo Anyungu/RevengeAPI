@@ -1,0 +1,23 @@
+
+
+
+type Angry {
+	causeId: String!	
+	me: email!
+	provoker: String!
+	cause: String!
+	cleared: Boolean!
+	forgiven: Boolean!
+	level: Int!
+	id:ID!
+}
+
+extend type Query {
+	findAllAngry: [Angry]!
+	findOneAngry: [Angry]!
+}
+
+extend type Mutation {
+	createAngry(causeId: String!, cause: String!, me: String!, provoker: String!, level:Int): Angry!
+	
+}
