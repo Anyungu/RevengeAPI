@@ -3,6 +3,7 @@ package com.anyungu.revenge.revengeAPI.models;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,6 +15,7 @@ public class User {
 
 	@NotNull
 	@Email
+	@UniqueElements
 	private String email;
 
 	@NotNull
