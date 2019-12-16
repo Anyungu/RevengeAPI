@@ -10,7 +10,7 @@ type User {
 # Root
 type Query {
 	findAllUsers: [User]!
-	findOneUser: User!
+	#findOneUser: User!
 }
 
 # Root

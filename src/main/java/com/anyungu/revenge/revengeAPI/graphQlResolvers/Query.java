@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.anyungu.revenge.revengeAPI.models.Anger;
@@ -14,7 +15,7 @@ import com.anyungu.revenge.revengeAPI.repositories.AngryRepository;
 import com.anyungu.revenge.revengeAPI.repositories.UserRepository;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 
-@Service
+@Component
 public class Query implements GraphQLQueryResolver {
 
 	@Autowired
@@ -38,8 +39,8 @@ public class Query implements GraphQLQueryResolver {
 		return userRepository.findAll();
 	}
 
-	public Optional<User> findOneUser(String email) {
-		return userRepository.findByEmail(email);
-	}
+//	public Optional<User> findOneUser(String email) {
+//		return userRepository.findByEmail(email);
+//	}
 
 }

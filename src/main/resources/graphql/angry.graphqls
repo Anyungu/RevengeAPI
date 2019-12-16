@@ -3,7 +3,7 @@
 
 type Angry {
 	causeId: String!	
-	me: email!
+	me: String!
 	provoker: String!
 	cause: String!
 	cleared: Boolean!
@@ -14,7 +14,7 @@ type Angry {
 
 extend type Query {
 	findAllAngry: [Angry]!
-	findOneAngry: [Angry]!
+#	findOneAngry: [Angry]!
 }
 
 extend type Mutation {

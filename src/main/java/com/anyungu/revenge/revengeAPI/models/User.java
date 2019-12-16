@@ -14,7 +14,6 @@ public class User {
 	private String id;
 
 	@NotNull
-	@Email
 	@UniqueElements
 	private String email;
 
@@ -23,11 +22,10 @@ public class User {
 	private String name;
 
 	@NotNull
-	@Email
 	private String password;
 
 	@NotNull
-	private Integer yob;
+	private Integer yoB;
 
 	public String getId() {
 		return id;
@@ -61,17 +59,17 @@ public class User {
 		this.password = password;
 	}
 
-	public Integer getYob() {
-		return yob;
+	public Integer getYoB() {
+		return yoB;
 	}
 
-	public void setYob(Integer yob) {
-		this.yob = yob;
+	public void setYoB(Integer yoB) {
+		this.yoB = yoB;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", name=" + name + ", password=" + password + ", yob=" + yob
+		return "User [id=" + id + ", email=" + email + ", name=" + name + ", password=" + password + ", yoB=" + yoB
 				+ "]";
 	}
 

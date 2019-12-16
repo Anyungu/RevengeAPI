@@ -2,14 +2,14 @@
 
 type Anger {
 	cause: String!	
-	definer: email!
+	definer: String!
 	id: ID!
 	description: String!
 }
 
 extend type Query {
 	findAllAngers: [Anger]!
-	findOneAnger: [Anger]!
+	#findOneAnger: [Anger]!
 }
 
 extend type Mutation {
