@@ -14,6 +14,8 @@ import com.anyungu.revenge.revengeAPI.repositories.UserRepository;
 import com.anyungu.revenge.revengeAPI.services.UserService;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 
+import graphql.GraphQLException;
+
 @Component
 public class Mutation implements GraphQLMutationResolver {
 
@@ -43,7 +45,7 @@ public class Mutation implements GraphQLMutationResolver {
 
 	}
 
-	public User createUser(String email, String name, String password, Integer yoB) throws Exception {
+	public User createUser(String email, String name, String password, Integer yoB) throws GraphQLException {
 
 		return userService.createUser(email, name, password, yoB);
 

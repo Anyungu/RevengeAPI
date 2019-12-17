@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.anyungu.revenge.revengeAPI.exceptions.CustomException;
 import com.anyungu.revenge.revengeAPI.graphQlResolvers.Query;
 import com.anyungu.revenge.revengeAPI.models.User;
 import com.anyungu.revenge.revengeAPI.repositories.UserRepository;
+
+import graphql.GraphQLException;
 
 @Service
 public class UserService {
@@ -18,12 +21,14 @@ public class UserService {
 	@Autowired
 	private Query query;
 
-	public User createUser(String email, String name, String password, Integer yoB) throws Exception {
+	public User createUser(String email, String name, String password, Integer yoB) throws CustomException {
 
 		List<User> findOneUser = query.findOneUser(email);
+		
+		System.out.println(findOneUser);
 
 		if (!findOneUser.isEmpty()) {
-			throw new Exception("User Already Exists");
+			throw new CustomException(404, "User Already Exists");
 		}
 
 		User user = new User();
