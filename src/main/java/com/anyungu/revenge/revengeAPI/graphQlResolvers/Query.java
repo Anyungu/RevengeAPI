@@ -1,7 +1,6 @@
 package com.anyungu.revenge.revengeAPI.graphQlResolvers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -39,8 +38,8 @@ public class Query implements GraphQLQueryResolver {
 		return userRepository.findAll();
 	}
 
-//	public Optional<User> findOneUser(String email) {
-//		return userRepository.findByEmail(email);
-//	}
+	public List<User> findOneUser(String email) {
+		return userRepository.findByEmail(email);
+	}
 
 }

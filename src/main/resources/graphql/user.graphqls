@@ -10,10 +10,11 @@ type User {
 # Root
 type Query {
 	findAllUsers: [User]!
-	#findOneUser: User!
+	findOneUser(email: String!): [User]
 }
 
 # Root
 type Mutation {
 	createUser(email: String!, name: String!, password: String!, yoB:Int!): User!
+	deleteOneUser(email: String!): Boolean
 }

@@ -1,8 +1,9 @@
 package com.anyungu.revenge.revengeAPI.graphQlResolvers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.anyungu.revenge.revengeAPI.models.Anger;
 import com.anyungu.revenge.revengeAPI.models.Angry;
@@ -10,6 +11,7 @@ import com.anyungu.revenge.revengeAPI.models.User;
 import com.anyungu.revenge.revengeAPI.repositories.AngerRepository;
 import com.anyungu.revenge.revengeAPI.repositories.AngryRepository;
 import com.anyungu.revenge.revengeAPI.repositories.UserRepository;
+import com.anyungu.revenge.revengeAPI.services.UserService;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 
 @Component
@@ -19,10 +21,16 @@ public class Mutation implements GraphQLMutationResolver {
 	private AngerRepository angerRepository;
 
 	@Autowired
+	private UserService userService;
+
+	@Autowired
 	private UserRepository userRepository;
 
 	@Autowired
 	private AngryRepository angryRepository;
+
+	@Autowired
+	private Query query;
 
 	public Anger createAnger(String definer, String cause, String description) {
 
@@ -35,15 +43,9 @@ public class Mutation implements GraphQLMutationResolver {
 
 	}
 
-	public User createUser(String email, String name, String password, Integer yoB) {
+	public User createUser(String email, String name, String password, Integer yoB) throws Exception {
 
-		User user = new User();
-		user.setEmail(email);
-		user.setName(name);
-		user.setPassword(password);
-		user.setYoB(yoB);
-
-		return userRepository.save(user);
+		return userService.createUser(email, name, password, yoB);
 
 	}
 
@@ -59,6 +61,14 @@ public class Mutation implements GraphQLMutationResolver {
 		angry.setProvoker(provoker);
 
 		return angryRepository.save(angry);
+
+	}
+
+	public void deleteOneUser(String email) {
+
+		List<User> findOneUser = query.findOneUser(email);
+
+		userRepository.deleteAll(findOneUser);
 
 	}
 }

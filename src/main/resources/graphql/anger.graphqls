@@ -1,5 +1,5 @@
 
-
+"Description for the type"
 type Anger {
 	cause: String!	
 	definer: String!
@@ -13,6 +13,7 @@ extend type Query {
 }
 
 extend type Mutation {
+
 	createAnger(cause: String!, definer: String!, description: String!): Anger!
 	
 }
