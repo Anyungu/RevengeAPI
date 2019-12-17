@@ -1,6 +1,6 @@
 # RevengeAPI
 
-      This API will help you keep a record of wrongs commted against you
+      This API will help you keep a record of wrongs commited against you
       
       
 ## Spring Boot, MongoDB, GraphQL
